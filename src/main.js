@@ -1,3 +1,5 @@
+"use strict";
+
 import { engine } from "./engine/engine.js";
 import { EM } from "./engine/event/event.js";
 import ExampleSystem from "./engine/examplesystem/examplesystem.js";
