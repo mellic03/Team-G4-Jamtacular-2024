@@ -1,5 +1,6 @@
 
-export default class ProjectileSystem
+
+export default class Player
 {
     preload()
     {
@@ -10,7 +11,7 @@ export default class ProjectileSystem
     {
 
     }
-    
+
     draw()
     {
 

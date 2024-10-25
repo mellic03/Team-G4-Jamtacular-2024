@@ -1,11 +1,9 @@
 import Engine from "./engine.js";
-import ProjectileSystem from "./projectile.js";
 import ExampleSystem from "./examplesystem/examplesystem.js";
-
+import { EM } from "./event/event.js";
 
 const engine = new Engine;
 
-engine.addSystem(new ProjectileSystem);
 engine.addSystem(new ExampleSystem);
 
 
@@ -18,6 +16,8 @@ function preload()
 function setup()
 {
     engine.setup();
+
+    EM.on("test", () => { console.log("woot"); });
 }
 
 
@@ -28,6 +28,7 @@ function draw()
 
     fill(255, 0, 0);
     circle(500, 500, 250);
+
 }
 
 
