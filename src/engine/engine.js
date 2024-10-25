@@ -1,6 +1,5 @@
 
-
-export default class Engine
+class Engine
 {
     systems = []
 
@@ -14,7 +13,6 @@ export default class Engine
         this.systems.push(system);
     }
 
-
     preload()
     {
         for (let system of this.systems)
@@ -22,7 +20,6 @@ export default class Engine
             system.preload()
         }
     }
-    
     
     setup()
     {
@@ -34,7 +31,6 @@ export default class Engine
         }
     }
     
-    
     draw()
     {
         background(0);
@@ -44,5 +40,7 @@ export default class Engine
             system.draw()
         }
     }
-    
 }
+
+
+export const engine = new Engine();

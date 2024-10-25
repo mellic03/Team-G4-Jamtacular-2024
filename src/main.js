@@ -1,11 +1,11 @@
-import Engine from "./engine/engine.js";
-import ExampleSystem from "./engine/examplesystem/examplesystem.js";
+import { engine } from "./engine/engine.js";
 import { EM } from "./engine/event/event.js";
-import StateGameplay from "./game/gamestate.js";
+import ExampleSystem from "./engine/examplesystem/examplesystem.js";
+import Game from "./game/game.js";
 
-const engine = new Engine;
 
 engine.addSystem(new ExampleSystem);
+engine.addSystem(new Game);
 
 
 function preload()
@@ -25,7 +25,6 @@ function setup()
 function draw()
 {
     engine.draw();
-    background(0);
 
     fill(255, 0, 0);
     circle(500, 500, 250);
