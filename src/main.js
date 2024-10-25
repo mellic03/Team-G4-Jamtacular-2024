@@ -1,6 +1,7 @@
-import Engine from "./engine.js";
-import ExampleSystem from "./examplesystem/examplesystem.js";
-import { EM } from "./event/event.js";
+import Engine from "./engine/engine.js";
+import ExampleSystem from "./engine/examplesystem/examplesystem.js";
+import { EM } from "./engine/event/event.js";
+import StateGameplay from "./game/gamestate.js";
 
 const engine = new Engine;
 

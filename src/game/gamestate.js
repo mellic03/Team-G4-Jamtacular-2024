@@ -1,4 +1,4 @@
-import { GameState } from "./gamestate";
+import { GameState } from "../engine/state/gamestate.js";
 
 
 export default class StateGameplay extends GameState
