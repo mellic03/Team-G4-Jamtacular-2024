@@ -4,9 +4,7 @@ export default class sys_Image extends System {
         super();
         this.cache = new Map();
     }
-    preload() {
-    }
-    loadImg(path) {
+    load(path) {
         if (this.cache.has(path)) {
             return this.cache.get(path);
         }
@@ -15,6 +13,9 @@ export default class sys_Image extends System {
             this.cache.set(path, img);
             return img;
         }
+    }
+    get(path) {
+        return this.cache.get(path);
     }
 }
 //# sourceMappingURL=sys-image.js.map

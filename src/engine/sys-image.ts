@@ -11,12 +11,7 @@ export default class sys_Image extends System
         this.cache = new Map<string, any>();
     }
 
-    preload()
-    {
-
-    }
-
-    loadImg( path: string )
+    load( path: string )
     {
         if (this.cache.has(path))
         {
@@ -31,4 +26,9 @@ export default class sys_Image extends System
         }
     }
 
+    get( path: string )
+    {
+        return this.cache.get(path);
+    }
 }
+

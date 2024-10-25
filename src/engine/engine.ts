@@ -2,8 +2,9 @@ import System from "./system.js";
 import sys_Render from "./sys-render.js";
 import sys_Event from "./sys-event.js";
 import sys_Audio from "./sys-audio.js";
-import sys_Particle from "./sys-particle.js";
+import sys_Image from "./sys-image.js";
 import sys_Noise from "./sys-noise.js";
+import sys_Particle from "./sys-particle.js";
 
 
 export default class Engine
@@ -13,8 +14,9 @@ export default class Engine
     constructor( res_x, res_y )
     {
         this.addSystem(new sys_Render(res_x, res_y));
-        this.addSystem(new sys_Event);
         this.addSystem(new sys_Audio);
+        this.addSystem(new sys_Image);
+        this.addSystem(new sys_Event);
         this.addSystem(new sys_Noise);
         this.addSystem(new sys_Particle);
     }

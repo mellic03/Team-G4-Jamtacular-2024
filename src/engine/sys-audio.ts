@@ -3,22 +3,32 @@ import System from "./system.js";
 
 export default class sys_Audio extends System
 {
-    sounds: Map<string, any>;
+    cache: Map<string, any>;
 
     constructor()
     {
         super();
-        this.sounds = new Map<string, any>();
+        this.cache = new Map<string, any>();
     }
 
-    preload()
+    load( path: string )
     {
+        if (this.cache.has(path))
+        {
+            return this.cache.get(path);
+        }
 
+        else
+        {
+            const img = loadSound(path);
+            this.cache.set(path, img);
+            return img;
+        }
     }
 
-    getSound( name: string )
+    get( name: string )
     {
-        return this.sounds.get(name);
+        return this.cache.get(name);
     }
-
 }
+

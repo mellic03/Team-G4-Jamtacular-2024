@@ -2,12 +2,20 @@ import System from "./system.js";
 export default class sys_Audio extends System {
     constructor() {
         super();
-        this.sounds = new Map();
+        this.cache = new Map();
     }
-    preload() {
+    load(path) {
+        if (this.cache.has(path)) {
+            return this.cache.get(path);
+        }
+        else {
+            const img = loadSound(path);
+            this.cache.set(path, img);
+            return img;
+        }
     }
-    getSound(name) {
-        return this.sounds.get(name);
+    get(name) {
+        return this.cache.get(name);
     }
 }
 //# sourceMappingURL=sys-audio.js.map

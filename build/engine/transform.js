@@ -1,11 +1,11 @@
 import vec2 from "./math/vec2.js";
-let Identity;
-export default class Transform {
+class Transform {
     constructor(x, y, theta) {
         this.localpos = new vec2(x, y);
         this.worldpos = new vec2(0, 0);
         this.theta = theta;
         this.rot = theta;
+        this.parent = Transform.I;
         this.children = [];
     }
     mult(parent) {
@@ -14,7 +14,7 @@ export default class Transform {
         this.worldpos.rotate(this.rot);
         this.worldpos.add(parent.worldpos);
     }
-    computeHierarchy(parent = Identity) {
+    computeHierarchy(parent = Transform.I) {
         this.mult(parent);
         for (let child of this.children) {
             child.computeHierarchy(this);
@@ -35,6 +35,7 @@ export default class Transform {
         return this.worldpos.y;
     }
 }
+Transform.I = new Transform(0, 0, 0);
+export default Transform;
 ;
-Identity = new Transform(0, 0, 0);
 //# sourceMappingURL=transform.js.map
