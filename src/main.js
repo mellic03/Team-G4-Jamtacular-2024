@@ -2,12 +2,11 @@ import Engine from "./engine.js";
 import ProjectileSystem from "./projectile.js";
 import ExampleSystem from "./examplesystem/examplesystem.js";
 
+
 const engine = new Engine;
 
 engine.addSystem(new ProjectileSystem);
 engine.addSystem(new ExampleSystem);
-// engine.addSystem(new OtherSystem);
-// engine.addSystem(new OtherSystem);
 
 
 function preload()
