@@ -58,9 +58,9 @@ void main()
     //     result *= 0.0;
     // }
 
-    vec2 corner = un_corner.xy;
-    float light = 1.0 / (1.0 + max(corner.y + fsin_texcoord.y, 0.0));
-    result *= light;
+    // vec2 corner = un_corner.xy;
+    // float light = 1.0 / (1.0 + max(corner.y + fsin_texcoord.y, 0.0));
+    // result *= light;
 
     fsout_frag_color = vec4(result, 1.0);
     // fsout_frag_color = vec4(1.0, 0.0, 0.0, 1.0);

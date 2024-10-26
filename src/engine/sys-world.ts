@@ -68,8 +68,9 @@ class WorldChunk
                     rockiness = 0.8 * Math.exp(rockiness - 1);
 
                 let height = rockiness * nsys.FBM(x/256+2048, y/256+2048+128, 8, 0.7, 2.0, nsys.perlin);
-                let attenuation = 1.0 / (1.0 + math.max(y/32.0, 1.0));
-                    attenuation = 1.0;
+                let depth  = math.max(y/64.0, 0);
+                let attenuation = 1.0 / (1.0 + depth*depth);
+                    // attenuation = 1.0;
 
                 g = math.clamp(0, 1, height - 0.12);
 
