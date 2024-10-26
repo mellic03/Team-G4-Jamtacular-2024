@@ -6,6 +6,8 @@ import sys_Image from "../../engine/sys-image.js";
 export default class Item extends Actor
 {
     image_path: string;
+    ore_strength: number; // time to harvest ore? measured in megapascals
+    // spawn_chance: number; Spawn amount and rarity? idk how we are handling world gen
 
     constructor( x: number, y: number )
     {
