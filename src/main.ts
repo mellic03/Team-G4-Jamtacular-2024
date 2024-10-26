@@ -4,28 +4,25 @@ import Engine from "./engine/engine.js";
 import Game from "./game/game.js";
 
 
-const engine = new Engine(512, 512);
-const game   = new Game;
+const engine = new Engine(1024, 1024);
+engine.addScene(new Game);
 
 
 function preload()
 {
     engine.preload();
-    game.preload();
 }
 
 
 function setup()
 {
     engine.setup();
-    game.setup();
 }
 
 
 function draw()
 {
     engine.draw();
-    game.draw();
 }
 
 

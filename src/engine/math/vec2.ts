@@ -1,6 +1,7 @@
 
 export default class vec2
 {
+    private static temp = new vec2(0, 0);
     x: number;
     y: number;
 
@@ -46,6 +47,35 @@ export default class vec2
         this.y /= n;
     }
 
+    magSq(): number
+    {
+        return this.x*this.x + this.y*this.y;
+    }
+
+    mag(): number
+    {
+        return Math.sqrt(this.magSq());
+    }
+
+    normalize(): void
+    {
+        const len = this.mag();
+        this.x /= len;
+        this.y /= len;
+    }
+
+    distSq( v: vec2 ): number
+    {
+        const dx = this.x - v.x;
+        const dy = this.y - v.y;
+        return dx*dx + dy*dy;
+    }
+
+    dist( v: vec2 ): number
+    {
+        return Math.sqrt(this.distSq(v));
+    }
+
     floor()
     {
         this.x = Math.floor(this.x);
@@ -62,35 +92,6 @@ export default class vec2
     {
         this.direction(start, end);
         this.normalize();
-    }
-
-    magSq(): number
-    {
-        return this.x*this.x + this.y*this.y;
-    }
-
-    mag(): number
-    {
-        return Math.sqrt(this.magSq());
-    }
-
-    distSq( v: vec2 ): number
-    {
-        const dx = this.x - v.x;
-        const dy = this.y - v.y;
-        return dx*dx + dy*dy;
-    }
-
-    dist( v: vec2 ): number
-    {
-        return Math.sqrt(this.distSq(v));
-    }
-
-    normalize(): void
-    {
-        const len = this.mag();
-        this.x /= len;
-        this.y /= len;
     }
 
     normalizeMul( n: number ): void
@@ -124,6 +125,13 @@ export default class vec2
 
         this.x = (C*x - S*y);
         this.y = (S*x + C*y);
+    }
+
+    moveTo( v: vec2, speed: number )
+    {
+        vec2.temp.normalizedDirection(this, v);
+        vec2.temp.mul(speed);
+        this.add(vec2.temp);
     }
 };
 

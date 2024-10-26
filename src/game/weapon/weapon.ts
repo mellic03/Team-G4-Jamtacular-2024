@@ -1,4 +1,4 @@
-import Actor from "../engine/actor";
+import Actor from "../../engine/actor";
 
 
 export default class Weapon extends Actor

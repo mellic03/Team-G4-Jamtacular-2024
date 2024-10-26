@@ -7,12 +7,12 @@ export default class sys_Render extends System {
         this.width = width;
         this.height = height;
     }
-    preload() {
+    preload(engine) {
     }
-    setup() {
+    setup(engine) {
         createCanvas(this.width, this.height, WEBGL);
     }
-    update() {
+    update(engine) {
         translate(-this.view.x, -this.view.y, 0);
         background(200);
     }

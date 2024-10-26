@@ -3,11 +3,11 @@ export default class sys_Particle extends System {
     constructor() {
         super();
     }
-    preload() {
+    preload(engine) {
     }
-    setup() {
+    setup(engine) {
     }
-    update() {
+    update(engine) {
     }
 }
 //# sourceMappingURL=sys-particle.js.map

@@ -7,8 +7,8 @@ export default class Transform
     localpos: vec2;
     worldpos: vec2;
 
-    theta: number;
-    rot: number;
+    localrot: number;
+    worldrot: number;
 
     parent:   Transform;
     children: Array<Transform>;
@@ -18,43 +18,45 @@ export default class Transform
         this.localpos = new vec2(x, y);
         this.worldpos = new vec2(0, 0);
 
-        this.theta = theta;
-        this.rot = theta;
+        this.localrot = theta;
+        this.worldrot = theta;
 
         this.parent   = Transform.I;
         this.children = [];
     }
 
-    mult( parent: Transform )
+
+    InverseKinematics( length: number )
     {
-        this.rot = parent.rot + this.theta;
-        this.worldpos.copy(this.localpos);
-        this.worldpos.rotate(this.rot);
-        this.worldpos.add(parent.worldpos);
+        
     }
 
-    computeHierarchy( parent: Transform = Transform.I )
+
+    ForwardKinematics( parent: Transform = Transform.I )
     {
-        this.mult(parent);
+        this.worldrot = parent.worldrot + this.localrot;
+        this.worldpos.copy(this.localpos);
+        this.worldpos.rotate(this.worldrot);
+        this.worldpos.add(parent.worldpos);
 
         for (let child of this.children)
         {
-            child.computeHierarchy(this);
+            child.ForwardKinematics(this);
         } 
     }
 
     from( x: number, y: number, theta: number ): void
     {
         this.localpos.from(x, y);
-        this.theta = theta;
+        this.localrot = theta;
     }
 
-    translateLocal( x: number, y: number ): void
+    translate( x: number, y: number ): void
     {
         this.localpos.x += x;
         this.localpos.y += y;
     }
-    
+
     get x()
     {
         return this.worldpos.x;

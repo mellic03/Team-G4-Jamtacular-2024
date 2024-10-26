@@ -9,18 +9,24 @@ export default class Actor {
             return og_update.apply(this);
         };
     }
+    get pos() {
+        return this.transform.worldpos;
+    }
     pushChild(child) {
         this.children.push(child);
     }
     popChild() {
         return this.children.pop();
     }
-    update() {
-        // console.log(`[Actor.update]`);
+    update(engine) {
         for (let child of this.children) {
-            child.transform.mult(this.transform);
-            child.update();
+            child.update(engine);
         }
+    }
+    draw(engine) {
+    }
+    moveTo(pos, speed = 1) {
+        this.transform.localpos.moveTo(pos, speed);
     }
 }
 //# sourceMappingURL=actor.js.map

@@ -1,25 +1,36 @@
+import Engine from "../engine/engine.js";
+import Scene from "../engine/scene.js";
+import Enemy from "./enemy.js";
+import Player from "./player.js";
 
 
-export default class Game
+export default class Game extends Scene
 {
+    player: Player;
+
     constructor()
     {
+        super();
 
+        this.player = new Player(-150, 0);
+
+        this.addActor(this.player);
+        this.addActor(new Enemy(+150, 0));
     }
 
-    preload()
+    preload( engine: Engine ): void
     {
         
     }
-    
-    setup()
+
+    setup( engine: Engine ): void
     {
 
     }
     
-    draw()
+    update( engine: Engine ): void
     {
-        circle(0, 0, 200);
+
     }
 }
 

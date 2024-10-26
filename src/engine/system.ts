@@ -1,23 +1,24 @@
+import Engine from "./engine";
 
 
-export default class System
+export default abstract class System
 {
     constructor()
     {
 
     }
 
-    preload(): void
+    preload( engine: Engine ): void
     {
 
     }
     
-    setup(): void
+    setup( engine: Engine ): void
     {
 
     }
     
-    update(): void
+    update( engine: Engine ): void
     {
 
     }

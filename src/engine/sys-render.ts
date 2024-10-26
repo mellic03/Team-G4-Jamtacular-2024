@@ -1,5 +1,6 @@
 import System from "./system.js";
 import vec2 from "./math/vec2.js";
+import Engine from "./engine.js";
 
 
 export default class sys_Render extends System
@@ -16,18 +17,18 @@ export default class sys_Render extends System
         this.height = height;
     }
 
-    preload(): void
+    preload( engine: Engine ): void
     {
 
     }
     
-    setup(): void
+    setup( engine: Engine ): void
     {
         createCanvas(this.width, this.height, WEBGL);
 
     }
 
-    update(): void
+    update( engine: Engine ): void
     {
         translate(-this.view.x, -this.view.y, 0);
         background(200);

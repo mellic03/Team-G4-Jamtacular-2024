@@ -6,7 +6,9 @@ import sys_Noise from "./sys-noise.js";
 import sys_Particle from "./sys-particle.js";
 export default class Engine {
     constructor(res_x, res_y) {
-        this.systems = new Map;
+        this.systems = new Array;
+        this.scenes = new Array;
+        this.lookup = new Map;
         this.addSystem(new sys_Render(res_x, res_y));
         this.addSystem(new sys_Audio);
         this.addSystem(new sys_Image);
@@ -16,26 +18,35 @@ export default class Engine {
     }
     addSystem(system) {
         console.log(`[Engine.addSystem] ${system.constructor.name}`);
-        this.systems.set(system.constructor.name, system);
+        this.systems.push(system);
+        this.lookup.set(system.constructor.name, this.systems.length - 1);
     }
     getSystem(sys_type) {
-        return this.systems.get(sys_type.name);
+        const idx = this.lookup.get(sys_type.name);
+        return this.systems[idx];
+    }
+    addScene(scene) {
+        this.addSystem(scene);
+    }
+    getScene(scene_type) {
+        const idx = this.lookup.get(scene_type.name);
+        return this.systems[idx];
     }
     preload() {
         console.log(`[Engine.preload]`);
-        for (let [name, system] of this.systems) {
-            system.preload();
+        for (let system of this.systems) {
+            system.preload(this);
         }
     }
     setup() {
         console.log(`[Engine.setup]`);
-        for (let [name, system] of this.systems) {
-            system.setup();
+        for (let system of this.systems) {
+            system.setup(this);
         }
     }
     draw() {
-        for (let [name, system] of this.systems) {
-            system.update();
+        for (let system of this.systems) {
+            system.update(this);
         }
     }
 }

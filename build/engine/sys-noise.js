@@ -6,18 +6,18 @@ export default class sys_Noise extends System {
         this.imgVoronoi = new Array(4);
         this.uv = new vec2(0, 0);
     }
-    preload() {
+    preload(engine) {
         for (let i = 0; i < 4; i++) {
             this.imgVoronoi[i] = loadImage(`assets/img/noise/voronoi/${i}.jpg`);
         }
     }
-    setup() {
+    setup(engine) {
         noiseSeed(1831);
         for (let img of this.imgVoronoi) {
             img.loadPixels();
         }
     }
-    update() {
+    update(engine) {
         // console.log(this.imgVoronoi[0]);
     }
     perlin(x, y) {
@@ -33,8 +33,9 @@ export default class sys_Noise extends System {
         let amp = 1.0;
         let freq = 1.0;
         let rot = 0.0;
-        this.uv.from(x, y);
         for (let i = 0; i < octaves; i++) {
+            this.uv.from(x, y);
+            this.uv.rotate(rot);
             fbm += amp * noisefunction(freq * this.uv.x, freq * this.uv.y);
             amp *= persistence;
             freq *= lacunarity;

@@ -98,27 +98,27 @@ class IOManager
             this.mouse_time = 0.0;
         }
 
-        // for (let i=8; i<=222; i++)
-        // {
-        //     let state = KEY_UP;
+        for (let i=8; i<=222; i++)
+        {
+            let state = KEY_UP;
 
-        //     if (keyIsDown(i))
-        //     {
-        //         state = KEY_DOWN;
-        //     }
+            if (keyIsDown(i))
+            {
+                state = KEY_DOWN;
+            }
 
-        //     else if (this.keystate[i] == KEY_DOWN)
-        //     {
-        //         state = KEY_TAPPED;
-        //     }
+            else if (this.keystate[i] == KEY_DOWN)
+            {
+                state = KEY_TAPPED;
+            }
 
-        //     else
-        //     {
-        //         state = KEY_UP;
-        //     }
+            else
+            {
+                state = KEY_UP;
+            }
 
-        //     this.keystate[i] = state;
-        // }
+            this.keystate[i] = state;
+        }
     }
 
     keyTapped( keycode: number ): boolean
