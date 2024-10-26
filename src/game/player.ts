@@ -15,7 +15,6 @@ export default class Player extends Actor
     update( engine: Engine )
     {
         super.update(engine);
-
     }
 
     draw( engine: Engine )
