@@ -15,10 +15,6 @@ export default class Game extends Scene
     {
         super();
 
-        this.player = new Player(-150, 0);
-
-        this.addActor(this.player);
-        this.addActor(new Enemy(+150, 0));
     }
 
     preload( engine: Engine ): void
@@ -28,10 +24,9 @@ export default class Game extends Scene
 
     setup( engine: Engine ): void
     {
-        if (IO.keyDown(KEYCODE.D))
-        {
-
-        }
+        this.player = new Player(-150, 0);
+        this.addActor(this.player);
+        this.addActor(new Enemy(+150, 0));
     }
 
     update( engine: Engine ): void
