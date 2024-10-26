@@ -18,16 +18,18 @@ export default class Enemy extends Actor
         super.update(engine);
 
         const gameScene = engine.getScene(Game);
-        let Player = gameScene.player.pos;
 
+        let Player = gameScene.player.pos;
         this.moveTo(Player);
 
     }
 
     draw( engine: Engine )
     {
-        fill(255, 0, 0);
-        circle(this.x, this.y, 32);
+        // fill(255, 0, 0);
+        const imgSys = engine.getSystem(sys_Image);
+        const enemyImg = imgSys.get('assets/img/enemyImg.png');
+        image(enemyImg, this.x, this.y);
     }
 
 }
