@@ -66,7 +66,6 @@ export default class Player extends Character
     {
         super.draw(engine);
 
-        this.transform.mult(this.transform);
         // fill(0, 255, 0);
         // circle(this.x-32, this.y, 32);
         // circle(this.x, this.y, 32);
