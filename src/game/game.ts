@@ -22,6 +22,7 @@ export default class Game extends Scene
         const img = engine.getSystem(sys_Image);
         img.load("assets/img/space-lq.png");
         img.load("assets/img/blood-eye-lq.png");
+        img.load("assets/img/enemyImg.png");
     }
 
     setup( engine: Engine ): void
