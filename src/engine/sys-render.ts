@@ -74,11 +74,11 @@ export default class sys_Render extends System
 
     setup( engine: Engine ): void
     {
-        createCanvas(this.width, this.height, WEBGL);
+        createCanvas(this.width, this.height);
         frameRate(165);
 
-        this.offline_ctx = createGraphics(this.width, this.height, WEBGL);
-        textFont(this.font);
+        // this.offline_ctx = createGraphics(this.width, this.height, WEBGL);
+        // textFont(this.font);
     }
 
     update( engine: Engine ): void

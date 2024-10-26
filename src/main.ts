@@ -22,6 +22,7 @@ function setup()
 }
 
 
+
 function draw()
 {
     engine.draw();
@@ -30,7 +31,7 @@ function draw()
     stroke(0);
     fill(0);
     textSize(24);
-    text(`fps: ${ren.avgFPS()}`, -300, -300);
+    text(`fps: ${ren.avgFPS()}`, 100, 100);
 }
 
 
