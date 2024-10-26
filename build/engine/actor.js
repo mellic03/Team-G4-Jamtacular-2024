@@ -19,10 +19,10 @@ export default class Actor {
         return this.pos.y;
     }
     set x(n) {
-        this.transform.localpos.x += n;
+        this.transform.localpos.x = n;
     }
     set y(n) {
-        this.transform.localpos.y += n;
+        this.transform.localpos.y = n;
     }
     pushChild(child) {
         this.children.push(child);

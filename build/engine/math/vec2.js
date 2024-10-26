@@ -82,8 +82,12 @@ class vec2 {
         this.y = (S * x + C * y);
     }
     moveTo(v, speed) {
-        vec2.temp.normalizedDirection(this, v);
-        vec2.temp.mul(speed);
+        vec2.temp.direction(this, v);
+        const m2 = this.magSq();
+        if (m2 == 0) {
+            return;
+        }
+        vec2.temp.mul(speed / Math.sqrt(m2));
         this.add(vec2.temp);
     }
 }
