@@ -13,6 +13,7 @@ export default class Game extends Scene {
     setup(engine) {
     }
     update(engine) {
+        super.update(engine);
     }
 }
 //# sourceMappingURL=game.js.map

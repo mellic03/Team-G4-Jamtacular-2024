@@ -1,5 +1,7 @@
 import Engine from "../engine/engine.js";
 import Scene from "../engine/scene.js";
+import sys_Audio from "../engine/sys-audio.js";
+import sys_Image from "../engine/sys-image.js";
 import Enemy from "./enemy.js";
 import Player from "./player.js";
 
@@ -20,16 +22,17 @@ export default class Game extends Scene
 
     preload( engine: Engine ): void
     {
-        
+
     }
 
     setup( engine: Engine ): void
     {
 
     }
-    
+
     update( engine: Engine ): void
     {
+        super.update(engine);
 
     }
 }

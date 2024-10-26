@@ -13,16 +13,26 @@ export default class Actor
         this.children  = new Array<Actor>;
         this.transform = new Transform(x, y, theta);
 
-        const og_update = this.update;
-        this.update = () => {
-          Actor.prototype.update.apply(this);
-          return og_update.apply(this);
-        };
+        // const og_update = this.update;
+        // this.update = ( engine: Engine ) => {
+        //   Actor.prototype.update.apply(this, engine);
+        //   return og_update.apply(this, engine);
+        // };
     }
 
     get pos()
     {
         return this.transform.worldpos;
+    }
+
+    get x()
+    {
+        return this.pos.x;
+    }
+
+    get y()
+    {
+        return this.pos.y;
     }
 
     pushChild( child: Actor ): void

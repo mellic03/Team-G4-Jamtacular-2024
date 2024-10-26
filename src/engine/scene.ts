@@ -11,12 +11,12 @@ export default class Scene extends System
     {
         super();
 
-        const og_update = this.update;
+        // const og_update = this.update;
 
-        this.update = () => {
-          Scene.prototype.update.apply(this);
-          return og_update.apply(this);
-        };
+        // this.update = () => {
+        //   Scene.prototype.update.apply(this);
+        //   return og_update.apply(this);
+        // };
     }
 
     addActor( A: Actor ): void

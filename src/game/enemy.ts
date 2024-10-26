@@ -14,13 +14,14 @@ export default class Enemy extends Actor
 
     update( engine: Engine )
     {
-        // Do whatever here
+        super.update(engine);
+
     }
 
     draw( engine: Engine )
     {
         fill(255, 0, 0);
-        circle(this.transform.x, this.transform.y, 32);
+        circle(this.x, this.y, 32);
     }
 
 }

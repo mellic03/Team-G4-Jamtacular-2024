@@ -3,11 +3,11 @@ export default class Scene extends System {
     constructor() {
         super();
         this.actors = [];
-        const og_update = this.update;
-        this.update = () => {
-            Scene.prototype.update.apply(this);
-            return og_update.apply(this);
-        };
+        // const og_update = this.update;
+        // this.update = () => {
+        //   Scene.prototype.update.apply(this);
+        //   return og_update.apply(this);
+        // };
     }
     addActor(A) {
         this.actors.push(A);
