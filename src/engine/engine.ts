@@ -23,7 +23,7 @@ export default class Engine
         this.addSystem(new sys_Event);
         this.addSystem(new sys_Noise);
         this.addSystem(new sys_Particle);
-        this.addSystem(new sys_World);
+        // this.addSystem(new sys_World);
     }
 
     addSystem( system: System )

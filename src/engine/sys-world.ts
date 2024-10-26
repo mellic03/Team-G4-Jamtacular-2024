@@ -42,7 +42,6 @@ class WorldChunk
 
         for (let row=0; row<this.width; row++)
         {
-
             for (let col=0; col<this.width; col++)
             {
                 const idx = 4 * (this.width*row + col);
@@ -124,9 +123,9 @@ export default class sys_World extends System
     {
         const ren = engine.getSystem(sys_Render);
 
-        for (let i=-8; i<=8; i++)
+        for (let i=-4; i<=4; i++)
         {
-            for (let j=-2; j<=8; j++)
+            for (let j=-2; j<=5; j++)
             {
                 this.chunks.push(new WorldChunk(i, j, 64, 8, engine));
             }

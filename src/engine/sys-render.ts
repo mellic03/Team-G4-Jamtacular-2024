@@ -54,6 +54,7 @@ export default class sys_Render extends System
     height: number;
     view  = new vec2(0, 0);
     scale = 1.0;
+    avg_fps = 0;
 
     private offline_ctx: Graphics;
     private font: any;
@@ -84,7 +85,14 @@ export default class sys_Render extends System
     {
         scale(this.scale);
         translate(-this.view.x, -this.view.y, 0);
-        background(0);
+        background(255);
+
+        this.avg_fps = math.mix(this.avg_fps, frameRate(), 1.0/60.0);
+    }
+
+    avgFPS(): number
+    {
+        return this.avg_fps;
     }
 
     getOfflineContext(): Graphics

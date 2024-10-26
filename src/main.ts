@@ -25,11 +25,12 @@ function setup()
 function draw()
 {
     engine.draw();
+    const ren = engine.getSystem(sys_Render);
 
     stroke(0);
     fill(0);
     textSize(24);
-    text(`fps: ${frameRate()}`, -300, -300);
+    text(`fps: ${ren.avgFPS()}`, -300, -300);
 }
 
 
