@@ -16,8 +16,6 @@ export default class Player extends Actor
     {
         super.update(engine);
         
-        
-
         if (IO.keyDown(KEYCODE.W)) {
             this.y -= 1; 
         } 
@@ -30,7 +28,6 @@ export default class Player extends Actor
         if (IO.keyDown(KEYCODE.A)) {
             this.x -= 1; 
         }   
-
     }
 
     draw( engine: Engine )
