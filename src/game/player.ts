@@ -16,6 +16,8 @@ export default class Player extends Actor
     {
         super.update(engine);
         
+        
+
         if (IO.keyDown(KEYCODE.W)) {
             this.y -= 1; 
         } 
@@ -35,6 +37,10 @@ export default class Player extends Actor
     {
         fill(0, 255, 0);
         circle(this.x, this.y, 32);
+
+        const imageSys = engine.getSystem(sys_Image);
+        const img = imageSys.get("assets/img/space-lq.png")
+        image(img, this.x, this.y)
     }
 
 }
