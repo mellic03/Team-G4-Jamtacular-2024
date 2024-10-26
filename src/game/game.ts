@@ -1,4 +1,5 @@
 import Engine from "../engine/engine.js";
+import { IO, KEYCODE } from "../engine/IO.js";
 import Scene from "../engine/scene.js";
 import sys_Audio from "../engine/sys-audio.js";
 import sys_Image from "../engine/sys-image.js";
@@ -27,7 +28,10 @@ export default class Game extends Scene
 
     setup( engine: Engine ): void
     {
+        if (IO.keyDown(KEYCODE.D))
+        {
 
+        }
     }
 
     update( engine: Engine ): void

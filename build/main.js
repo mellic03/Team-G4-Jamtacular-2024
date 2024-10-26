@@ -1,6 +1,6 @@
 import Engine from "./engine/engine.js";
 import Game from "./game/game.js";
-const engine = new Engine(1024, 1024);
+const engine = new Engine(800, 800);
 engine.addScene(new Game);
 function preload() {
     engine.preload();

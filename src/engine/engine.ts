@@ -38,7 +38,7 @@ export default class Engine
         return this.systems[idx] as T;
     }
 
-    addScene<T extends Scene>( scene: Scene ): void
+    addScene( scene: Scene ): void
     {
         this.addSystem(scene);
     }

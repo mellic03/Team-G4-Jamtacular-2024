@@ -1,3 +1,4 @@
+import { IO, KEYCODE } from "../engine/IO.js";
 import Scene from "../engine/scene.js";
 import Enemy from "./enemy.js";
 import Player from "./player.js";
@@ -11,6 +12,8 @@ export default class Game extends Scene {
     preload(engine) {
     }
     setup(engine) {
+        if (IO.keyDown(KEYCODE.D)) {
+        }
     }
     update(engine) {
         super.update(engine);
