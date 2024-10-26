@@ -1,4 +1,4 @@
-import Actor from "../../engine/actor";
+import Actor from "../../engine/actor.js";
 
 
 export default class Weapon extends Actor
@@ -24,6 +24,4 @@ export default class Weapon extends Actor
     }
 
 }
-
-
 

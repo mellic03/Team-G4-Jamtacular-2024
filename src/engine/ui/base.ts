@@ -1,5 +1,5 @@
 import { IO } from "../IO.js";
-import { idk_math } from "../math/math.js";
+import { math } from "../math/math.js";
 import ui_Bounds from "./bounds.js";
 import ui_Style from "./style.js";
 
@@ -47,8 +47,8 @@ export default class ui_ElementBase
         this.bounds.ymin += this.style.padding[2] / 2;
         this.bounds.ymax -= this.style.padding[3] / 2;
 
-        const width  = idk_math.clamp(this.style.minWidth, this.style.maxWidth, this.xmax-this.xmin);
-        const height = idk_math.clamp(this.style.minHeight, this.style.maxHeight, this.ymax-this.ymin);
+        const width  = math.clamp(this.style.minWidth, this.style.maxWidth, this.xmax-this.xmin);
+        const height = math.clamp(this.style.minHeight, this.style.maxHeight, this.ymax-this.ymin);
         
         let cx = this.xmin + width/2;
         let cy = this.ymin + height/2;
@@ -70,8 +70,8 @@ export default class ui_ElementBase
         const mx = mouseX;
         const my = mouseY;
 
-        const x = idk_math.clamp(this.xmin, this.xmax, mx);
-        const y = idk_math.clamp(this.ymin, this.ymax, my);
+        const x = math.clamp(this.xmin, this.xmax, mx);
+        const y = math.clamp(this.ymin, this.ymax, my);
 
         if (x == mx && y == my)
         {

@@ -7,7 +7,6 @@ import Game from "./game.js";
 
 export default class Enemy extends Actor
 {
-
     constructor( x: number, y: number )
     {
         super(x, y, 0);
@@ -15,13 +14,10 @@ export default class Enemy extends Actor
 
     update( engine: Engine )
     {
-        super.update(engine);
-
         const gameScene = engine.getScene(Game);
 
         let Player = gameScene.player.pos;
         this.moveTo(Player);
-
     }
 
     draw( engine: Engine )

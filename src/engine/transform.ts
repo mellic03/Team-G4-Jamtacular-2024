@@ -25,20 +25,23 @@ export default class Transform
         this.children = [];
     }
 
+    mult( parent: Transform )
+    {
+        this.worldrot = parent.worldrot + this.localrot;
+        this.worldpos.copy(this.localpos);
+        this.worldpos.rotate(this.worldrot);
+        this.worldpos.add(parent.worldpos);
+    }
 
     InverseKinematics( length: number )
     {
         
     }
 
-
     ForwardKinematics( parent: Transform = Transform.I )
     {
-        this.worldrot = parent.worldrot + this.localrot;
-        this.worldpos.copy(this.localpos);
-        this.worldpos.rotate(this.worldrot);
-        this.worldpos.add(parent.worldpos);
-
+        this.mult(parent);
+    
         for (let child of this.children)
         {
             child.ForwardKinematics(this);

@@ -30,7 +30,7 @@ export default class ui_Button extends ui_ElementBase
     offMouseHover(): void
     {
         // const dt = deltaTime / 1000.0;
-        // const a  = idk_math.clamp(16.0*dt, 0.0, 1.0);
+        // const a  = math.clamp(16.0*dt, 0.0, 1.0);
 
         // for (let i=0; i<this.style.fg.length; i++)
         // {
@@ -45,7 +45,7 @@ export default class ui_Button extends ui_ElementBase
     onMouseHover(): void
     {
         // const dt = deltaTime / 1000.0;
-        // const a  = idk_math.clamp(16.0*dt, 0.0, 1.0);
+        // const a  = math.clamp(16.0*dt, 0.0, 1.0);
 
         // for (let i=0; i<this.style.fg.length; i++)
         // {

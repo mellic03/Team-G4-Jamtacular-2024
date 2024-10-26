@@ -3,7 +3,7 @@ import vec2 from "./vec2.js";
 
 
 export default function FABRIK( joints: Array<vec2>, dists: Array<number>,
-    iterations: number )
+                                iterations: number )
 {
     let total_dist = 0.0;
 

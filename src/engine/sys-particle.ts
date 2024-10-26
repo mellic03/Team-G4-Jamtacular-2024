@@ -23,6 +23,6 @@ export default class sys_Particle extends System
     {
 
     }
-    
+
 }
 

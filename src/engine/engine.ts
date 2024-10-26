@@ -6,6 +6,7 @@ import sys_Image from "./sys-image.js";
 import sys_Noise from "./sys-noise.js";
 import sys_Particle from "./sys-particle.js";
 import Scene from "./scene.js";
+import sys_World from "./sys-world.js";
 
 
 export default class Engine
@@ -22,6 +23,7 @@ export default class Engine
         this.addSystem(new sys_Event);
         this.addSystem(new sys_Noise);
         this.addSystem(new sys_Particle);
+        this.addSystem(new sys_World);
     }
 
     addSystem( system: System )

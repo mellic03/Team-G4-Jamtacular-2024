@@ -1,7 +1,8 @@
+import { math } from "./math.js";
 
 export default class vec2
 {
-    private static temp = new vec2(0, 0);
+    static temp = new vec2(0, 0);
     x: number;
     y: number;
 
@@ -27,6 +28,12 @@ export default class vec2
     {
         this.x += v.x;
         this.y += v.y;
+    }
+
+    addxy( x, y )
+    {
+        this.x += x;
+        this.y += y;
     }
 
     sub( v: vec2 )
@@ -98,6 +105,18 @@ export default class vec2
     {
         this.normalize();
         this.mul(n);
+    }
+
+    mix( v: vec2, a: number ): void
+    {
+        this.x = math.mix(this.x, v.x, a);
+        this.y = math.mix(this.y, v.y, a);
+    }
+
+    mixxy( x: number, y: number, a: number ): void
+    {
+        this.x = math.mix(this.x, x, a);
+        this.y = math.mix(this.y, y, a);
     }
 
     rand( min: number, max: number ): void

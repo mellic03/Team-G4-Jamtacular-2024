@@ -1,5 +1,5 @@
 import { IO } from "../IO.js";
-import { idk_math } from "../math/math.js";
+import { math } from "../math/math.js";
 import ui_ElementBase from "./base.js";
 import ui_Bounds from "./bounds.js";
 import ui_Style from "./style.js";
