@@ -47,6 +47,10 @@ export default class Character extends Actor
         fill(0, 255, 0);
         circle(this.x, this.y, 32);
 
+        for (let B of this.head)
+        {
+            B.draw(engine);
+        }
     }
 
 }

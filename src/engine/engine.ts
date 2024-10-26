@@ -6,7 +6,7 @@ import sys_Image from "./sys-image.js";
 import sys_Noise from "./sys-noise.js";
 import sys_Particle from "./sys-particle.js";
 import Scene from "./scene.js";
-import sys_World from "./sys-world.js";
+// import sys_World from "./sys-world.js";
 
 
 export default class Engine

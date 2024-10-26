@@ -7,7 +7,8 @@ import { math } from "./engine/math/math.js";
 
 
 const engine = new Engine(1920, 1080);
-engine.addScene(new Game);
+const game   = new Game;
+engine.addScene(game);
 
 
 function preload()
@@ -22,16 +23,24 @@ function setup()
 }
 
 
-
 function draw()
 {
     engine.draw();
     const ren = engine.getSystem(sys_Render);
 
-    stroke(0);
-    fill(0);
+    stroke(255);
+    fill(255);
     textSize(24);
-    text(`fps: ${ren.avgFPS()}`, 100, 100);
+    text(`fps: ${ren.avgFPS()}`, -300, -300);
+
+    tint(255, 255, 255, 55);
+    image(game.voronoi, -400, 0, 3000, 3000);
+
+    tint(255, 255, 255, 220);
+    fill(0, 50, 150, 155);
+    // rect(-400, 0, 3000, 1000);
+    image(game.gradient, -400, 0, 3000, 3000);
+
 }
 
 

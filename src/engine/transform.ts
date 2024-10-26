@@ -28,8 +28,9 @@ export default class Transform
     mult( parent: Transform )
     {
         this.worldrot = parent.worldrot + this.localrot;
+
         this.worldpos.copy(this.localpos);
-        this.worldpos.rotate(this.worldrot);
+        this.worldpos.rotate(parent.worldrot);
         this.worldpos.add(parent.worldpos);
     }
 

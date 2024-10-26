@@ -6,6 +6,7 @@ import sys_Event from "../engine/sys-event.js";
 import sys_Image from "../engine/sys-image.js";
 import BodyPartHead from "./bodypart/head.js";
 import sys_Render from "../engine/sys-render.js";
+import Actor from "../engine/actor.js";
 
 
 export default class Player extends Character
@@ -14,39 +15,62 @@ export default class Player extends Character
     {
         super(x, y);
 
-        this.addHead(new BodyPartHead(0, 64));
+        this.addHead(new BodyPartHead(-32, 0));
+        this.addHead(new BodyPartHead(+32, 0));
+
+        this.drag = 1.0;
     }
 
     update( engine: Engine )
     {
+        super.update(engine);
+
         const ren = engine.getSystem(sys_Render);
         ren.view.mixxy(this.x, this.y, 0.1);
 
         const tmp = vec2.temp
         tmp.from(0, 0);
 
-        if (IO.keyDown(KEYCODE.W)) {
-            tmp.y -= 1;
-        } 
-        if (IO.keyDown(KEYCODE.S)) {
-            tmp.y += 1;
-        }
-        if (IO.keyDown(KEYCODE.D)) {
+        if (IO.keyDown(KEYCODE.SPACE))
+        {
             tmp.x += 1;
-        }
-        if (IO.keyDown(KEYCODE.A)) {
-            tmp.x -= 1;
+        } 
+
+        if (IO.keyDown(KEYCODE.A))
+        {
+            this.transform.localrot -= 0.01;
         }
 
-        this.addForce(16*tmp.x, 16*tmp.y);
+        if (IO.keyDown(KEYCODE.D))
+        {
+            this.transform.localrot += 0.01;
+        }
+
+        tmp.rotate(this.transform.worldrot);
+
+        
+        if (this.y < 0.0)
+        {
+            this.drag = 0.2;
+            this.addForce(0.0, 4.0);
+        }
+
+        else
+        {
+            this.drag = 0.4;
+            this.addForce(4*tmp.x, 4*tmp.y);
+        }
     }
 
     draw( engine: Engine )
     {
-        fill(0, 255, 0);
-        circle(this.x-32, this.y, 32);
-        circle(this.x, this.y, 32);
-        circle(this.x+32, this.y, 32);
+        super.draw(engine);
+
+        this.transform.mult(this.transform);
+        // fill(0, 255, 0);
+        // circle(this.x-32, this.y, 32);
+        // circle(this.x, this.y, 32);
+        // circle(this.x+32, this.y, 32);
 
     }
 

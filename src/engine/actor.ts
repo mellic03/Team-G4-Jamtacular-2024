@@ -9,6 +9,7 @@ export default class Actor
     public children:  Array<Actor>;
     public transform: Transform;
     private vel = new vec2(0, 0);
+    public  drag = 0.5;
 
     constructor( x: number = 0, y: number = 0, theta: number = 0 )
     {
@@ -60,7 +61,7 @@ export default class Actor
     update( engine: Engine ): void
     {
         const dt = deltaTime / 1000.0;
-        const a  = math.clamp(4.0*dt, 0, 1);
+        const a  = math.clamp(this.drag*dt, 0, 1);
 
         this.transform.localpos.x += dt*this.vel.x;
         this.transform.localpos.y += dt*this.vel.y;

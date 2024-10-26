@@ -10,6 +10,8 @@ import Player from "./player.js";
 export default class Game extends Scene
 {
     player: Player;
+    gradient;
+    voronoi;
 
     constructor()
     {
@@ -23,6 +25,8 @@ export default class Game extends Scene
         img.load("assets/img/space-lq.png");
         img.load("assets/img/blood-eye-lq.png");
         img.load("assets/img/enemyImg.png");
+        this.gradient = img.load("assets/img/gradient.png");
+        this.voronoi = img.load("assets/img/voronoi.png");
     }
 
     setup( engine: Engine ): void

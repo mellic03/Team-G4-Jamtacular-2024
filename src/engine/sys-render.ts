@@ -83,9 +83,10 @@ export default class sys_Render extends System
 
     update( engine: Engine ): void
     {
+        translate(+this.width/2, +this.height/2, 0);
         scale(this.scale);
-        translate(-this.view.x, -this.view.y, 0);
-        background(255);
+        translate(-this.view.x,  -this.view.y,   0);
+        background(0);
 
         this.avg_fps = math.mix(this.avg_fps, frameRate(), 1.0/60.0);
     }
@@ -95,10 +96,10 @@ export default class sys_Render extends System
         return this.avg_fps;
     }
 
-    getOfflineContext(): Graphics
-    {
-        return this.offline_ctx;
-    }
+    // getOfflineContext(): Graphics
+    // {
+    //     return this.offline_ctx;
+    // }
 
     rectInView( x, y, w, h )
     {
