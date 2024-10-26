@@ -15,6 +15,20 @@ export default class Player extends Actor
     update( engine: Engine )
     {
         super.update(engine);
+        
+        if (IO.keyDown(KEYCODE.W)) {
+            this.y -= 1; 
+        } 
+        if (IO.keyDown(KEYCODE.S)) {
+            this.y += 1; 
+        }
+        if (IO.keyDown(KEYCODE.D)) {
+            this.x += 1; 
+        }
+        if (IO.keyDown(KEYCODE.A)) {
+            this.x -= 1; 
+        }   
+
     }
 
     draw( engine: Engine )
