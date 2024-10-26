@@ -8,6 +8,7 @@ export default class item_Nickel extends Item
     {
         super(x, y);
         this.image_path = "assets/img/nickel.png";
+        this.ore_strength = 300;
     }
 
 }

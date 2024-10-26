@@ -8,6 +8,7 @@ export default class item_Copper extends Item
     {
         super(x, y);
         this.image_path = "assets/img/copper.png";
+        this.ore_strength = 210;
     }
 
 }
