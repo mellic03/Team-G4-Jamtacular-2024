@@ -10,7 +10,6 @@ import item_Iron from "./item/iron.js";
 import item_Nickel from "./item/nickel.js";
 import item_Titanium from "./item/titanium.js";
 import item_Zinc from "./item/zinc.js";
-import Item from "./item/item.js";
 import Inventory from "./inventory/inventory.js";
 
 
@@ -18,7 +17,6 @@ export default class Game extends Scene
 {
     player: Player;
     inventory: Inventory;
-    zinc: Item;
     gradient;
     voronoi;
 
