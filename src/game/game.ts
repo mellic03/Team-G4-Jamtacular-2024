@@ -4,6 +4,10 @@ import Scene from "../engine/scene.js";
 import sys_Audio from "../engine/sys-audio.js";
 import sys_Image from "../engine/sys-image.js";
 import Enemy from "./enemy.js";
+import item_Copper from "./item/copper.js";
+import item_Iron from "./item/iron.js";
+import item_Nickel from "./item/nickel.js";
+import item_Titanium from "./item/titanium.js";
 import item_Zinc from "./item/zinc.js";
 import Player from "./player.js";
 
@@ -26,6 +30,10 @@ export default class Game extends Scene
         img.load("assets/img/enemyImg.png");
 
         img.load("assets/img/ore/zinc.png");
+        img.load("assets/img/ore/copper.png");
+        img.load("assets/img/ore/iron.png");
+        img.load("assets/img/ore/nickel.png");
+        img.load("assets/img/ore/titanium.png");
     }
 
     setup( engine: Engine ): void
@@ -35,8 +43,11 @@ export default class Game extends Scene
         this.addActor(new Enemy(+150, 0));
 
         const imgSys = engine.getSystem(sys_Image);
-        this.addActor(new item_Zinc(0, 0, imgSys.get("assets/img/ore/zinc.png")))
-
+        this.addActor(new item_Zinc(0, 0, imgSys.get("assets/img/ore/zinc.png")));
+        this.addActor(new item_Copper(16, 0, imgSys.get("assets/img/ore/copper.png")));
+        this.addActor(new item_Iron(32, 0, imgSys.get("assets/img/ore/iron.png")));
+        this.addActor(new item_Nickel(64, 0, imgSys.get("assets/img/ore/nickel.png")));
+        this.addActor(new item_Titanium(48, 0, imgSys.get("assets/img/ore/titanium.png")));
         
     }
 

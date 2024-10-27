@@ -4,10 +4,9 @@ import Item from "./item.js";
 
 export default class item_Copper extends Item
 {
-    constructor( x: number, y: number )
+    constructor( x: number, y: number, image )
     {
         super(x, y, image);
-        // this.image_path = "assets/img/copper.png";
         this.ore_strength = 210;
     }
 
