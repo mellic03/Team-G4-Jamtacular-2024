@@ -11,6 +11,8 @@ import Actor from "../engine/actor.js";
 
 export default class Player extends Character
 {
+    health: number;
+    maxHealth: number;
     constructor( x: number, y: number )
     {
         super(x, y);
@@ -19,6 +21,9 @@ export default class Player extends Character
         this.addHead(new BodyPartHead(+32, 0));
 
         this.drag = 1.0;
+
+        this.health = 100;
+        this.maxHealth = 100;
     }
 
     update( engine: Engine )
@@ -66,13 +71,31 @@ export default class Player extends Character
     {
         super.draw(engine);
 
+        const healthBarWidth = 100;
+        const healthRatio = this.health / this.maxHealth;
+
+        fill (0,255, 0);
+        rect(this.x - healthBarWidth / 2, this.y - 75, healthBarWidth * healthRatio, 10);
+    
         // fill(0, 255, 0);
         // circle(this.x-32, this.y, 32);
         // circle(this.x, this.y, 32);
         // circle(this.x+32, this.y, 32);
-
     }
 
+    takeDamage(amount: number) {
+        this.health -= amount;
+        console.log(`Player took ${amount} damage. Health: This ${this.health}`);
+
+        if (this.health < 0) {
+            this.health = 0;
+            this.handleDeath();
+        }
+    }
+
+    handleDeath() {
+        console.log("Player is dead");
+    }
 }
 
 
