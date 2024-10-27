@@ -10,11 +10,15 @@ import item_Iron from "./item/iron.js";
 import item_Nickel from "./item/nickel.js";
 import item_Titanium from "./item/titanium.js";
 import item_Zinc from "./item/zinc.js";
+import Item from "./item/item.js";
+import Inventory from "./inventory/inventory.js";
 
 
 export default class Game extends Scene
 {
     player: Player;
+    inventory: Inventory;
+    zinc: Item;
     gradient;
     voronoi;
 
@@ -45,10 +49,18 @@ export default class Game extends Scene
     {
         this.player = new Player(-150, 0);
         this.addActor(this.player);
+<<<<<<< HEAD
         this.addActor(new Enemy(+150, 0, 50, 10, 100));
         console.log(this.addActor(new Enemy(+150, 0, 50, 10, 100)))
+=======
+        this.addActor(new Enemy(+150, 0));
+
+        this.inventory = new Inventory();
+
+        // temp ore spawn
+>>>>>>> 8cc1b1c5d1ca3046a94968172a710dce6b987601
         const imgSys = engine.getSystem(sys_Image);
-        this.addActor(new item_Zinc(0, -100, imgSys.get("assets/img/ore/zinc.png")));
+        this.addActor(new item_Zinc(200, -16, imgSys.get("assets/img/ore/zinc.png")));
         this.addActor(new item_Copper(16, -100, imgSys.get("assets/img/ore/copper.png")));
         this.addActor(new item_Iron(32, -100, imgSys.get("assets/img/ore/iron.png")));
         this.addActor(new item_Nickel(64, -100, imgSys.get("assets/img/ore/nickel.png")));

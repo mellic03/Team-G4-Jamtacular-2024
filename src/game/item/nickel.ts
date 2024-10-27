@@ -8,6 +8,7 @@ export default class item_Nickel extends Item
     {
         super(x, y, image);
         this.ore_strength = 300;
+        this.ore_type = 'nickel';
     }
 
 }
