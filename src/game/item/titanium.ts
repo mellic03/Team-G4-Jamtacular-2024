@@ -8,6 +8,7 @@ export default class item_Titanium extends Item
     {
         super(x, y, image);
         this.ore_strength = 430;
+        this.ore_type = 'titanium';
     }
 
 }

@@ -8,6 +8,7 @@ export default class item_Copper extends Item
     {
         super(x, y, image);
         this.ore_strength = 210;
+        this.ore_type = 'copper';
     }
 
 }
