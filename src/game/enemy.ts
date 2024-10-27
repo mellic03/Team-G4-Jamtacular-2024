@@ -19,7 +19,6 @@ export default class Enemy extends Actor
         this.detectionRadius = detectionRadius;
     }
 
-    
   update(engine: Engine) {
     const gameScene = engine.getScene(Game);
     const player = gameScene.player; // get the player object
@@ -33,6 +32,18 @@ export default class Enemy extends Actor
   detectPlayer(player: Actor): boolean {
     const distance = dist(this.x, this.y, player.x, player.y);
     return distance < this.detectionRadius;
+  }
+
+  handleDeath() {
+    console.log("Enemy defeated");
+    // i need to add logic on removing enemy 
+  }
+
+  takeDamage(amount: number) {
+    this.health -= amount;
+    if (this.health <= 0) {
+        this.handleDeath();
+    }
   }
 
   draw( engine: Engine )
