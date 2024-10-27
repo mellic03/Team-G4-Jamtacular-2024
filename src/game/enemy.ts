@@ -7,26 +7,40 @@ import Game from "./game.js";
 
 export default class Enemy extends Actor
 {
-    constructor( x: number, y: number )
+    health: number;
+    damage: number;
+    detectionRadius: number;
+
+    constructor( x: number, y: number, health: number, damage:number, detectionRadius: number )
     {
         super(x, y, 0);
+        this.health = health;
+        this.damage = damage;
+        this.detectionRadius = detectionRadius;
     }
 
-    update( engine: Engine )
-    {
-        const gameScene = engine.getScene(Game);
+    
+  update(engine: Engine) {
+    const gameScene = engine.getScene(Game);
+    const player = gameScene.player; // get the player object
 
-        let Player = gameScene.player.pos;
-        this.moveTo(Player);
+    // basic detection logic
+    if (this.detectPlayer(player)) {
+      this.moveTo(player.pos); // move towards the player
     }
+  }
 
-    draw( engine: Engine )
-    {
-        // fill(255, 0, 0);
-        const imgSys = engine.getSystem(sys_Image);
-        const enemyImg = imgSys.get('assets/img/enemyImg.png');
-        image(enemyImg, this.x, this.y);
-    }
+  detectPlayer(player: Actor): boolean {
+    const distance = dist(this.x, this.y, player.x, player.y);
+    return distance < this.detectionRadius;
+  }
 
+  draw( engine: Engine )
+  {
+      // fill(255, 0, 0);
+      const imgSys = engine.getSystem(sys_Image);
+      const enemyImg = imgSys.get('assets/img/enemyImg.png');
+      image(enemyImg, this.x, this.y);
+  }
 }
 

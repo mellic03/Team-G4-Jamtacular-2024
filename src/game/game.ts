@@ -45,8 +45,8 @@ export default class Game extends Scene
     {
         this.player = new Player(-150, 0);
         this.addActor(this.player);
-        this.addActor(new Enemy(+150, 0));
-
+        this.addActor(new Enemy(+150, 0, 50, 10, 100));
+        console.log(this.addActor(new Enemy(+150, 0, 50, 10, 100)))
         const imgSys = engine.getSystem(sys_Image);
         this.addActor(new item_Zinc(0, -100, imgSys.get("assets/img/ore/zinc.png")));
         this.addActor(new item_Copper(16, -100, imgSys.get("assets/img/ore/copper.png")));
