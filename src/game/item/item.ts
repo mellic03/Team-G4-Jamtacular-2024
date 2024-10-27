@@ -5,13 +5,14 @@ import sys_Image from "../../engine/sys-image.js";
 
 export default class Item extends Actor
 {
-    image_path: string;
+    image;
     ore_strength: number; // time to harvest ore? measured in megapascals
-    // spawn_chance: number; Spawn amount and rarity? idk how we are handling world gen
+    spawn_chance: number; // Spawn amount and rarity? idk how we are handling world gen
 
-    constructor( x: number, y: number )
+    constructor( x: number, y: number, image )
     {
         super(x, y);
+        this.image = image;
     }
 
     draw( engine: Engine ): void
@@ -20,7 +21,7 @@ export default class Item extends Actor
 
         // const imageSys = engine.getSystem(sys_Image);
         // const img = imageSys.get(this.image_path);
-        // image(img, this.x, this.y)
+        image(this.image, this.x, this.y)
     }
 
 }

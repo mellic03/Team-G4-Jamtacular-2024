@@ -4,10 +4,9 @@ import Item from "./item.js";
 
 export default class item_Zinc extends Item
 {
-    constructor( x: number, y: number )
+    constructor( x: number, y: number, image )
     {
-        super(x, y);
-        this.image_path = "assets/img/zinc.png";
+        super(x, y, image);
         this.ore_strength = 100;
     }
 

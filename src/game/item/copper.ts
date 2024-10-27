@@ -6,8 +6,8 @@ export default class item_Copper extends Item
 {
     constructor( x: number, y: number )
     {
-        super(x, y);
-        this.image_path = "assets/img/copper.png";
+        super(x, y, image);
+        // this.image_path = "assets/img/copper.png";
         this.ore_strength = 210;
     }
 
