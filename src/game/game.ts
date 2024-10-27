@@ -54,10 +54,10 @@ export default class Game extends Scene
         // temp ore spawn
         const imgSys = engine.getSystem(sys_Image);
         this.addActor(new item_Zinc(200, -16, imgSys.get("assets/img/ore/zinc.png")));
-        this.addActor(new item_Copper(16, -100, imgSys.get("assets/img/ore/copper.png")));
-        this.addActor(new item_Iron(32, -100, imgSys.get("assets/img/ore/iron.png")));
-        this.addActor(new item_Nickel(64, -100, imgSys.get("assets/img/ore/nickel.png")));
-        this.addActor(new item_Titanium(48, -100, imgSys.get("assets/img/ore/titanium.png")));
+        this.addActor(new item_Copper(16, -16, imgSys.get("assets/img/ore/copper.png")));
+        this.addActor(new item_Iron(32, -16, imgSys.get("assets/img/ore/iron.png")));
+        this.addActor(new item_Nickel(64, -16, imgSys.get("assets/img/ore/nickel.png")));
+        this.addActor(new item_Titanium(48, -16, imgSys.get("assets/img/ore/titanium.png")));
 
     }
 

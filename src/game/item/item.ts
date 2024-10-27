@@ -22,9 +22,9 @@ export default class Item extends Actor
         let player = gameScene.player; 
         let inventory = gameScene.inventory;
 
-        if (this.checkCollisionWithPlayer(player)) {
+        if (this.checkCollision(player)) {
             // console.log(this.ore_type);
-            inventory.collectOre(this.ore_type, this.ore_strength);
+            inventory.collectOre(this.ore_type, this.ore_strength, player.breakingPower);
         }
         
 
@@ -38,9 +38,9 @@ export default class Item extends Actor
 
     }
 
-    checkCollisionWithPlayer(player: Actor): boolean {
+    checkCollision(player: Actor): boolean {
         const distance = dist(this.x, this.y, player.x, player.y);
-        const collisionRadius = 30;
+        const collisionRadius = 90;
         return distance < collisionRadius;
     }
 

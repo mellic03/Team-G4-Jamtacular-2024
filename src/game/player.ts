@@ -13,6 +13,11 @@ export default class Player extends Character
 {
     health: number;
     maxHealth: number;
+
+    // ore related stats
+    breakingPower: number = 20;
+
+
     constructor( x: number, y: number )
     {
         super(x, y);
