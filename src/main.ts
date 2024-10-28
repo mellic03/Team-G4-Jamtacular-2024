@@ -1,5 +1,7 @@
 import {} from "p5/global";
 import {} from "p5/lib/addons/p5.sound";
+import {} from "../lib/p5/addons/p5play";
+
 import Engine from "./engine/engine.js";
 import Game from "./game/game.js";
 import sys_Render from "./engine/sys-render.js";
