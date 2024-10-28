@@ -14,6 +14,7 @@ import Inventory from "./inventory/inventory.js";
 import enemy_Shark from "./enemies/shark.js";
 
 
+
 export default class Game extends Scene
 {
     player: Player;
@@ -41,6 +42,8 @@ export default class Game extends Scene
         img.load("assets/img/ore/iron.png");
         img.load("assets/img/ore/nickel.png");
         img.load("assets/img/ore/titanium.png");
+
+        img.load("assets/img/enemies/shark.png")
     }
 
     setup( engine: Engine ): void
@@ -48,7 +51,7 @@ export default class Game extends Scene
         this.player = new Player(-150, 0);
         this.addActor(this.player);
         this.addActor(new Enemy(+500, 0, 10, 5, 1000, "assets/img/enemyImg.png"));
-        // this.addActor(new enemy_Shark(+700, 0, "assets/img/enemyImg.png"))
+        this.addActor(new enemy_Shark(300, 0, "assets/img/enemies/shark.png"))
 
         this.inventory = new Inventory();
 

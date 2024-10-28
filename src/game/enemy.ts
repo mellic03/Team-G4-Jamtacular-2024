@@ -18,9 +18,7 @@ export default class Enemy extends Actor {
   }
 
   update(engine: Engine): void {
-    const gameScene = engine.getScene(Game);
-    let player = gameScene.player.pos;
-    this.moveTo(player, 2)
+    
   }
 
   draw(engine: Engine): void {
