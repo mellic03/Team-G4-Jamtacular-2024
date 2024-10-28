@@ -11,7 +11,7 @@ import item_Nickel from "./item/nickel.js";
 import item_Titanium from "./item/titanium.js";
 import item_Zinc from "./item/zinc.js";
 import Inventory from "./inventory/inventory.js";
-import enemy_Shark from "./enemies/shark.js";
+// import enemy_Shark from "./enemies/shark.js";
 
 
 
