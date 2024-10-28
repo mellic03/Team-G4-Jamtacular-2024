@@ -47,7 +47,7 @@ export default class Game extends Scene
     {
         this.player = new Player(-150, 0);
         this.addActor(this.player);
-        this.addActor(new Enemy(+150, 0, 50, 10, 100));
+        this.addActor(new Enemy(+150, 0, 100, 5, "assets/img/enemyImg.png"));
 
         this.inventory = new Inventory();
 
