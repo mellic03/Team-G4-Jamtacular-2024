@@ -11,6 +11,7 @@ import item_Nickel from "./item/nickel.js";
 import item_Titanium from "./item/titanium.js";
 import item_Zinc from "./item/zinc.js";
 import Inventory from "./inventory/inventory.js";
+import enemy_Shark from "./enemies/shark.js";
 
 
 export default class Game extends Scene
@@ -34,7 +35,6 @@ export default class Game extends Scene
         this.gradient = img.load("assets/img/gradient.png");
         this.voronoi = img.load("assets/img/voronoi.png");
 
-
         // ores
         img.load("assets/img/ore/zinc.png");
         img.load("assets/img/ore/copper.png");
@@ -47,7 +47,8 @@ export default class Game extends Scene
     {
         this.player = new Player(-150, 0);
         this.addActor(this.player);
-        this.addActor(new Enemy(+150, 0, 100, 5, "assets/img/enemyImg.png"));
+        this.addActor(new Enemy(+500, 0, 10, 5, 1000, "assets/img/enemyImg.png"));
+        // this.addActor(new enemy_Shark(+700, 0, "assets/img/enemyImg.png"))
 
         this.inventory = new Inventory();
 
