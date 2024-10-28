@@ -12,11 +12,11 @@ export default class Enemy extends Actor {
     super(x, y, 0);
     this.health = health;
     this.damage = damage;
-    this.image = image; // Assign the image path based on the constructor input
+    this.image = image; 
   }
 
   update(engine: Engine): void {
-    // Base update logic for Enemy class, can be overridden by subclasses if needed
+    
   }
 
   takeDamage(amount: number): void {
@@ -28,7 +28,7 @@ export default class Enemy extends Actor {
 
   handleDeath(): void {
     console.log("Enemy defeated");
-    // Logic for removing the enemy from the game should be implemented here
+    
   }
 
   draw(engine: Engine): void {
