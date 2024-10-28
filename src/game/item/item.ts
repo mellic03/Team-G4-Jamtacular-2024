@@ -10,6 +10,7 @@ export default class Item extends Actor
     ore_type: string;
     ore_strength: number; // time to harvest ore? measured in megapascals
     spawn_chance: number; // Spawn amount and rarity? idk how we are handling world gen
+    collisionTimer: number = 0;
 
     constructor( x: number, y: number, image )
     {
@@ -24,9 +25,16 @@ export default class Item extends Actor
 
         if (this.checkCollision(player)) {
             // console.log(this.ore_type);
-            inventory.collectOre(this.ore_type, this.ore_strength, player.breakingPower);
+
+            this.collisionTimer += deltaTime;
+
+            if (this.collisionTimer >= (this.ore_strength / player.breakingPower) * 1000) {
+                inventory.collectOre(this.ore_type);
+                this.collisionTimer = 0;
+            }
+        } else {
+            this.collisionTimer = 0;
         }
-        
 
     }
 
